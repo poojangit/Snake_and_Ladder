@@ -29,20 +29,25 @@ def snake_ladder_game():
                 f"NO PLAY : The player will stay at the same position {current_postion} "
             )
         elif random_option == "ladder":
+            if (current_postion + dice_value) > 100:
+                continue
             current_postion += dice_value
             print(
                 f"LADDER : The player will move ahead of dice value current postion is {current_postion}"
             )
         elif random_option == "snake":
+            if(current_postion - dice_value) < 0 :
+                continue
             current_postion -= dice_value
-            if current_postion < 0:
-                current_postion = 0
             print(
                 f"SNAKE: The player moves behind now current position is {current_postion}"
             )
+        if current_postion == end_position :
+            print(f"Congratulation you won : {current_postion}")
+            break
             
-        print(f"Current postion : {current_postion}")
+        # print(f"Current postion : {current_postion}")
         print("---------------------------------------")
-
+ 
 if __name__ == "__main__":
     snake_ladder_game()
